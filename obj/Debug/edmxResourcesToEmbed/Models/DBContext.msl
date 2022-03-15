@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BaiTH5ModelStoreContainer" CdmEntityContainer="DBContext">
+    <EntitySetMapping Name="Congs">
+      <EntityTypeMapping TypeName="BaiTH5Model.Cong">
+        <MappingFragment StoreEntitySet="Cong">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="SLNgayCong" ColumnName="SLNgayCong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CongTrinhs">
+      <EntityTypeMapping TypeName="BaiTH5Model.CongTrinh">
+        <MappingFragment StoreEntitySet="CongTrinh">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+          <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
+          <ScalarProperty Name="NgayCapGP" ColumnName="NgayCapGP" />
+          <ScalarProperty Name="NgayKC" ColumnName="NgayKC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="BaiTH5Model.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="BaiTH5Model.PhongBan">
+        <MappingFragment StoreEntitySet="PhongBan">
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetNhanVien" FunctionImportName="GetNhanVien">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVien_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetNhanVienByDiaChi" FunctionImportName="GetNhanVienByDiaChi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVienByDiaChi_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetNhanVienByGioiTinh" FunctionImportName="GetNhanVienByGioiTinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVienByGioiTinh_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetNhanVienByTen" FunctionImportName="GetNhanVienByTen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVienByTen_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetNhanVietByDoTuoi" FunctionImportName="GetNhanVietByDoTuoi">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVietByDoTuoi_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="BaiTH5Model.Store.GetPhongBan" FunctionImportName="GetPhongBan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetPhongBan_Result">
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="TenPB" ColumnName="TenPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddCong" FunctionName="BaiTH5Model.Store.AddCong" />
+    <FunctionImportMapping FunctionImportName="AddCongTrinh" FunctionName="BaiTH5Model.Store.AddCongTrinh" />
+    <FunctionImportMapping FunctionImportName="AddNhanVien" FunctionName="BaiTH5Model.Store.AddNhanVien" />
+    <FunctionImportMapping FunctionImportName="AddPhongBan" FunctionName="BaiTH5Model.Store.AddPhongBan" />
+    <FunctionImportMapping FunctionImportName="DeleteCong" FunctionName="BaiTH5Model.Store.DeleteCong" />
+    <FunctionImportMapping FunctionImportName="DeleteCongTrinh" FunctionName="BaiTH5Model.Store.DeleteCongTrinh" />
+    <FunctionImportMapping FunctionImportName="DeleteNhanVien" FunctionName="BaiTH5Model.Store.DeleteNhanVien" />
+    <FunctionImportMapping FunctionImportName="DeletePhongBan" FunctionName="BaiTH5Model.Store.DeletePhongBan" />
+    <FunctionImportMapping FunctionImportName="UpdateCong" FunctionName="BaiTH5Model.Store.UpdateCong" />
+    <FunctionImportMapping FunctionImportName="UpdateCongTrinh" FunctionName="BaiTH5Model.Store.UpdateCongTrinh" />
+    <FunctionImportMapping FunctionImportName="UpdateNhanVien" FunctionName="BaiTH5Model.Store.UpdateNhanVien" />
+    <FunctionImportMapping FunctionImportName="UpdatePhongBan" FunctionName="BaiTH5Model.Store.UpdatePhongBan" />
+    <FunctionImportMapping FunctionImportName="GetNhanVienByPhongBan" FunctionName="BaiTH5Model.Store.GetNhanVienByPhongBan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BaiTH5Model.GetNhanVienByPhongBan_Result">
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BaiTH5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="GetNhanVien_Result">
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetNhanVienByDiaChi_Result">
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetNhanVienByGioiTinh_Result">
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetNhanVienByTen_Result">
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetNhanVietByDoTuoi_Result">
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetPhongBan_Result">
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+    <Property Name="TenPB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="Cong">
+    <Key>
+      <PropertyRef Name="MaCT" />
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaCT" Type="Int32" Nullable="false" />
+    <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="SLNgayCong" Type="Int32" />
+    <NavigationProperty Name="NhanVien" Relationship="BaiTH5Model.fk_2" FromRole="Cong" ToRole="NhanVien" />
+    <NavigationProperty Name="CongTrinh" Relationship="BaiTH5Model.fk_3" FromRole="Cong" ToRole="CongTrinh" />
+  </EntityType>
+  <EntityType Name="CongTrinh">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaDiem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapGP" Type="DateTime" Precision="0" />
+    <Property Name="NgayKC" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Congs" Relationship="BaiTH5Model.fk_3" FromRole="CongTrinh" ToRole="Cong" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="GioiTinh" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MaPB" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Congs" Relationship="BaiTH5Model.fk_2" FromRole="NhanVien" ToRole="Cong" />
+    <NavigationProperty Name="PhongBan" Relationship="BaiTH5Model.fk_1" FromRole="NhanVien" ToRole="PhongBan" />
+  </EntityType>
+  <EntityType Name="PhongBan">
+    <Key>
+      <PropertyRef Name="MaPB" />
+    </Key>
+    <Property Name="MaPB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NhanViens" Relationship="BaiTH5Model.fk_1" FromRole="PhongBan" ToRole="NhanVien" />
+  </EntityType>
+  <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Congs" EntityType="Self.Cong" />
+    <EntitySet Name="CongTrinhs" EntityType="Self.CongTrinh" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="PhongBans" EntityType="Self.PhongBan" />
+    <FunctionImport Name="GetNhanVien" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVien_Result)" />
+    <FunctionImport Name="GetNhanVienByDiaChi" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVienByDiaChi_Result)">
+      <Parameter Name="diachi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetNhanVienByGioiTinh" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVienByGioiTinh_Result)">
+      <Parameter Name="gioitinh" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetNhanVienByTen" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVienByTen_Result)">
+      <Parameter Name="ten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetNhanVietByDoTuoi" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVietByDoTuoi_Result)">
+      <Parameter Name="min" Mode="In" Type="Int32" />
+      <Parameter Name="max" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetPhongBan" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetPhongBan_Result)" />
+    <FunctionImport Name="AddCong">
+      <Parameter Name="MaCT" Mode="In" Type="Int32" />
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+      <Parameter Name="SLNgayCong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddCongTrinh">
+      <Parameter Name="ten" Mode="In" Type="String" />
+      <Parameter Name="diadiem" Mode="In" Type="String" />
+      <Parameter Name="ngaycap" Mode="In" Type="DateTime" />
+      <Parameter Name="ngaykc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AddNhanVien">
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="GioiTinh" Mode="In" Type="String" />
+      <Parameter Name="DiaChi" Mode="In" Type="String" />
+      <Parameter Name="MaPB" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddPhongBan">
+      <Parameter Name="tenpb" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCong">
+      <Parameter Name="Mact" Mode="In" Type="Int32" />
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCongTrinh">
+      <Parameter Name="mact" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteNhanVien">
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePhongBan">
+      <Parameter Name="mapb" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCong">
+      <Parameter Name="MaCT" Mode="In" Type="Int32" />
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+      <Parameter Name="SLNgayCong" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCongTrinh">
+      <Parameter Name="mact" Mode="In" Type="Int32" />
+      <Parameter Name="ten" Mode="In" Type="String" />
+      <Parameter Name="diadiem" Mode="In" Type="String" />
+      <Parameter Name="ngaycap" Mode="In" Type="DateTime" />
+      <Parameter Name="ngaykc" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateNhanVien">
+      <Parameter Name="MaNV" Mode="In" Type="Int32" />
+      <Parameter Name="NgaySinh" Mode="In" Type="DateTime" />
+      <Parameter Name="GioiTinh" Mode="In" Type="String" />
+      <Parameter Name="DiaChi" Mode="In" Type="String" />
+      <Parameter Name="MaPB" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePhongBan">
+      <Parameter Name="mapb" Mode="In" Type="Int32" />
+      <Parameter Name="tenpb" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="fk_2" Association="BaiTH5Model.fk_2">
+      <End EntitySet="NhanViens" Role="NhanVien" />
+      <End EntitySet="Congs" Role="Cong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_3" Association="BaiTH5Model.fk_3">
+      <End EntitySet="CongTrinhs" Role="CongTrinh" />
+      <End EntitySet="Congs" Role="Cong" />
+    </AssociationSet>
+    <AssociationSet Name="fk_1" Association="BaiTH5Model.fk_1">
+      <End EntitySet="PhongBans" Role="PhongBan" />
+      <End EntitySet="NhanViens" Role="NhanVien" />
+    </AssociationSet>
+    <FunctionImport Name="GetNhanVienByPhongBan" IsComposable="true" ReturnType="Collection(BaiTH5Model.GetNhanVienByPhongBan_Result)">
+      <Parameter Name="tenpb" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <Association Name="fk_2">
+    <End Type="BaiTH5Model.NhanVien" Multiplicity="1" Role="NhanVien" />
+    <End Type="BaiTH5Model.Cong" Multiplicity="*" Role="Cong" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="Cong">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_3">
+    <End Type="BaiTH5Model.CongTrinh" Multiplicity="1" Role="CongTrinh" />
+    <End Type="BaiTH5Model.Cong" Multiplicity="*" Role="Cong" />
+    <ReferentialConstraint>
+      <Principal Role="CongTrinh">
+        <PropertyRef Name="MaCT" />
+      </Principal>
+      <Dependent Role="Cong">
+        <PropertyRef Name="MaCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_1">
+    <End Type="BaiTH5Model.PhongBan" Multiplicity="1" Role="PhongBan" />
+    <End Type="BaiTH5Model.NhanVien" Multiplicity="*" Role="NhanVien" />
+    <ReferentialConstraint>
+      <Principal Role="PhongBan">
+        <PropertyRef Name="MaPB" />
+      </Principal>
+      <Dependent Role="NhanVien">
+        <PropertyRef Name="MaPB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetNhanVienByPhongBan_Result">
+    <Property Type="Int32" Name="MaNV" Nullable="false" />
+    <Property Type="String" Name="HoTen" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="NgaySinh" Nullable="true" Precision="10" />
+    <Property Type="String" Name="GioiTinh" Nullable="true" MaxLength="3" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="MaPB" Nullable="false" />
+  </ComplexType>
+</Schema>
